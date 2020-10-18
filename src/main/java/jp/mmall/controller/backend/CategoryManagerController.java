@@ -8,6 +8,7 @@ import jp.mmall.service.ICategoryService;
 import jp.mmall.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * Created by 2021 on 2019/10/16.
  */
 @Controller
-@RequestMapping("/manage/category/")
+@RequestMapping("/manage/category")
 public class CategoryManagerController {
 
     @Autowired
@@ -45,7 +46,7 @@ public class CategoryManagerController {
 
     @RequestMapping("set_category_name.do")
     @ResponseBody
-    public  ServerResponse setCategoryName(HttpSession session,Long categoryId,String categoryName){
+    public  ServerResponse setCategoryName(HttpSession session, Long categoryId, String categoryName){
         User user=(User) session.getAttribute(Const.CURRENT_USER);
         if (user==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录");
@@ -72,7 +73,7 @@ public class CategoryManagerController {
     }
 
 
-    @RequestMapping("get_category.do")
+    @RequestMapping("get_deep_category.do")
     @ResponseBody
     public  ServerResponse getCategoryAndDeepChildrenCategory(HttpSession session,@RequestParam(value = "categoryId",defaultValue = "0")Long categoryId){
         User user=(User) session.getAttribute(Const.CURRENT_USER);

@@ -5,8 +5,8 @@
     <constructor >
       <idArg column="ID" jdbcType="DECIMAL" javaType="java.lang.Long" />
       <arg column="USER_ID" jdbcType="DECIMAL" javaType="java.lang.Long" />
-      <arg column="ORDER_NO" jdbcType="DECIMAL" javaType="java.lang.Integer" />
-      <arg column="PAY_PLATFORM" jdbcType="DECIMAL" javaType="java.lang.Long" />
+      <arg column="ORDER_NO" jdbcType="DECIMAL" javaType="java.lang.Long" />
+      <arg column="PAY_PLATFORM" jdbcType="DECIMAL" javaType="java.lang.Integer" />
       <arg column="PLATFORM_NUMBER" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="PLATFORM_STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />

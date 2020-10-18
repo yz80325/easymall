@@ -1,6 +1,7 @@
 package jp.mmall.pojo;
 
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class OrderItem {
@@ -8,7 +9,7 @@ public class OrderItem {
 
     private Long userId;
 
-    private Integer orderNo;
+    private Long orderNo;
 
     private Long productId;
 
@@ -20,13 +21,13 @@ public class OrderItem {
 
     private Long quantity;
 
-    private Integer totalPrice;
+    private BigDecimal totalPrice;
 
     private Date createTime;
 
     private Date updateTime;
 
-    public OrderItem(Long id, Long userId, Integer orderNo, Long productId, String productName, String productImage, Integer currentUnitPrice, Long quantity, Integer totalPrice, Date createTime, Date updateTime) {
+    public OrderItem(Long id, Long userId, Long orderNo, Long productId, String productName, String productImage, Integer currentUnitPrice, Long quantity, BigDecimal totalPrice, Date createTime, Date updateTime) {
         this.id = id;
         this.userId = userId;
         this.orderNo = orderNo;
@@ -60,11 +61,11 @@ public class OrderItem {
         this.userId = userId;
     }
 
-    public Integer getOrderNo() {
+    public Long getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(Integer orderNo) {
+    public void setOrderNo(Long orderNo) {
         this.orderNo = orderNo;
     }
 
@@ -108,11 +109,11 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    public Integer getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Integer totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 

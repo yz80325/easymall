@@ -6,7 +6,7 @@ import java.util.Date;
 public class Order {
     private Long id;
 
-    private Integer orderNo;
+    private Long orderNo;
 
     private Long userId;
 
@@ -14,11 +14,11 @@ public class Order {
 
     private Integer payment;
 
-    private Short paymentType;
+    private Integer paymentType;
 
-    private Long postage;
+    private Integer postage;
 
-    private Long status;
+    private Integer status;
 
     private Date paymentTime;
 
@@ -32,7 +32,7 @@ public class Order {
 
     private Date updateTime;
 
-    public Order(Long id, Integer orderNo, Long userId, Long shippingId, Integer payment, Short paymentType, Long postage, Long status, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime) {
+    public Order(Long id, Long orderNo, Long userId, Long shippingId, Integer payment, Integer paymentType, Integer postage, Integer status, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime) {
         this.id = id;
         this.orderNo = orderNo;
         this.userId = userId;
@@ -61,11 +61,11 @@ public class Order {
         this.id = id;
     }
 
-    public Integer getOrderNo() {
+    public Long getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(Integer orderNo) {
+    public void setOrderNo(Long orderNo) {
         this.orderNo = orderNo;
     }
 
@@ -93,27 +93,27 @@ public class Order {
         this.payment = payment;
     }
 
-    public Short getPaymentType() {
+    public Integer getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(Short paymentType) {
+    public void setPaymentType(Integer paymentType) {
         this.paymentType = paymentType;
     }
 
-    public Long getPostage() {
+    public Integer getPostage() {
         return postage;
     }
 
-    public void setPostage(Long postage) {
+    public void setPostage(Integer postage) {
         this.postage = postage;
     }
 
-    public Long getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Long status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -16,5 +16,5 @@ public interface ICategoryService {
     //获取子类信息
     ServerResponse<List<Category>>getChildParallelCategory(Long categoryId);
     //递归查询信息
-    ServerResponse selectCategoryAndChildrenId(Long categoryId);
+    ServerResponse<List<Long>> selectCategoryAndChildrenId(Long categoryId);
 }

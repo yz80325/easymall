@@ -1,6 +1,7 @@
 package jp.mmall.dao;
 
 import jp.mmall.pojo.Order;
+import org.apache.ibatis.annotations.Param;
 
 public interface OrderMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +15,8 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+
+    Order selectByUserIdAndOrderNum(@Param("userId")Long userId,@Param("OrderNum")Long OrderNum);
+
+    Order selectByOrderNo(Long orderNo);
 }

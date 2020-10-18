@@ -27,11 +27,29 @@
     from MMALL_SHIPPING
     where ID = #{id,jdbcType=DECIMAL}
   </select>
+  <select id="selectShippingByUserIdandShId" resultMap="BaseResultMap" parameterType="map">
+    select
+    <include refid="Base_Column_List" />
+    from MMALL_SHIPPING
+    where ID = #{shippingId}
+    and userId=#{userId}
+  </select>
+  <select id="selectBYUserId" resultMap="BaseResultMap" parameterType="map">
+SELECT
+<include refid="Base_Column_List"/>
+    FROM MMALL_SHIPPING
+    WHERE user_id=#{userId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from MMALL_SHIPPING
     where ID = #{id,jdbcType=DECIMAL}
   </delete>
-  <insert id="insert" parameterType="jp.mmall.pojo.Shipping" >
+  <delete id="deleteByShippingIdUserId" parameterType="map">
+DELETE FROM MMALL_SHIPPING
+WHERE id=#{shippingId}
+and user_id=#{userId}
+  </delete>
+  <insert id="insert" parameterType="jp.mmall.pojo.Shipping" useGeneratedKeys="true" keyProperty="id" >
     insert into MMALL_SHIPPING (ID, USER_ID, RECEIVER_NAME, 
       RECEIVER_PHONE, RECEIVER_MOBILE, RECEIVER_PROVINCE, 
       RECEIVER_CITY, RECEIVER_DISTRICT, RECEIVER_ADDRESS, 
@@ -175,5 +193,21 @@
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       UPDATE_TIME = sysdate
     where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByShinppingandByUserId" parameterType="jp.mmall.pojo.Shipping">
+       update MMALL_SHIPPING
+    set
+      RECEIVER_NAME = #{receiverName,jdbcType=VARCHAR},
+      RECEIVER_PHONE = #{receiverPhone,jdbcType=VARCHAR},
+      RECEIVER_MOBILE = #{receiverMobile,jdbcType=VARCHAR},
+      RECEIVER_PROVINCE = #{receiverProvince,jdbcType=VARCHAR},
+      RECEIVER_CITY = #{receiverCity,jdbcType=VARCHAR},
+      RECEIVER_DISTRICT = #{receiverDistrict,jdbcType=VARCHAR},
+      RECEIVER_ADDRESS = #{receiverAddress,jdbcType=VARCHAR},
+      RECEIVER_ZIP = #{receiverZip,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = sysdate
+    where ID = #{id,jdbcType=DECIMAL}
+    and USER_ID = #{userId,jdbcType=DECIMAL}
   </update>
 </mapper>

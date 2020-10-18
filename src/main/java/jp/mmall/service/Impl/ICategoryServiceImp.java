@@ -67,7 +67,7 @@ public class ICategoryServiceImp implements ICategoryService{
 /*
 * 递归查询本节点的Id和递归节点的Id
 * */
-    public ServerResponse selectCategoryAndChildrenId(Long categoryId){
+    public ServerResponse<List<Long>> selectCategoryAndChildrenId(Long categoryId){
     Set<Category>categorySet= Sets.newHashSet();
         findChildCategory(categorySet,categoryId);
 
